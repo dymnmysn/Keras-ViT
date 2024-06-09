@@ -1,7 +1,7 @@
-from keras import utils
-from keras import models
-from keras import layers
-from keras import activations
+from tensorflow.keras import utils
+from tensorflow.keras import models
+from tensorflow.keras import layers
+from tensorflow.keras import activations
 from .utils import load_imgnet_weights
 from .layers import PatchEmbedding, AddCLSToken, AddPositionEmbedding, TransformerEncoder
 from .config import BASIC_URL, WEIGHTS, VIT_B_CONFIG, VIT_L_CONFIG, WEIGHTS_CONFIG, PRE_TRAINED_WEIGHTS_FNAME

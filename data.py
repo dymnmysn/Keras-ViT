@@ -3,8 +3,8 @@
 from PIL import Image
 import pickle
 import numpy as np
-from keras.preprocessing.image import ImageDataGenerator
-from keras.utils import to_categorical
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+from tensorflow.keras.utils import to_categorical
 
 
 def load_data(path):
@@ -91,7 +91,7 @@ def my_data_gen(infinite_data_gen, resize=None):
 
 
 def cifar_10_data_gen(path, batch_size=32, data="train", resize=None, label_smooth=None):
-    '''¶Ôcifar-10Êı¾İ¼¯¹¹½¨µÄÊı¾İÉú³ÉÆ÷
+    '''å¯¹cifar-10æ•°æ®é›†æ„å»ºçš„æ•°æ®ç”Ÿæˆå™¨
     '''
     (train_imgs, train_labels), (test_imgs, test_labels) = load_cifar_10(path)
     if data == "train":

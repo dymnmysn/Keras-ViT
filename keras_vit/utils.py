@@ -1,6 +1,6 @@
 import cv2
-from keras import utils
-from keras import backend as K
+from tensorflow.keras import utils
+from tensorflow.keras import backend as K
 from .config import BASIC_URL, FNAME_CLASSES_IN2012
 
 

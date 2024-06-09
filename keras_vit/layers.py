@@ -79,6 +79,7 @@ class MultiHeadAttention(layers.Layer):
         return super().build(input_shape)
 
     def call(self, inputs):
+        dk = tf.sqrt(tf.cast(inputs.shape[-1] // self.heads, dtype=tf.float32))  # Compute dk in call method
         q = self.q_dense(inputs)
         k = self.k_dense(inputs)
         v = self.v_dense(inputs)
@@ -86,7 +87,7 @@ class MultiHeadAttention(layers.Layer):
         k = tf.concat(tf.split(k, self.heads, axis=-1), axis=0)
         v = tf.concat(tf.split(v, self.heads, axis=-1), axis=0)
         qk = tf.matmul(q, k, transpose_b=True)  
-        qk = activations.softmax(qk / self.dk)
+        qk = activations.softmax(qk / dk)
         qkv = tf.matmul(qk, v)
         qkv = tf.concat(tf.split(qkv, self.heads, axis=0), axis=-1)
         return self.o_dense(qkv)

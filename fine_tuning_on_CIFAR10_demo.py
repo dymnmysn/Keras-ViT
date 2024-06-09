@@ -1,7 +1,7 @@
 ﻿from tqdm import tqdm
-from keras.optimizers import SGD
-from keras.losses import CategoricalCrossentropy
-from keras import backend as K
+from tensorflow.keras.optimizers import SGD
+from tensorflow.keras.losses import CategoricalCrossentropy
+from tensorflow.keras import backend as K
 from data import cifar_10_data_gen
 from keras_vit.vit import ViT_B32, ViT
 
